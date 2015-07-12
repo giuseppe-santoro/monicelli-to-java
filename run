@@ -1,0 +1,5 @@
+#!/bin/bash
+
+java -Xmx500M -cp "antlr-4.5-complete.jar:$CLASSPATH" org.antlr.v4.Tool -o antlrsrc/it/monicelli Monicelli.g4
+javac antlrsrc/it/monicelli/*.java -d bin/
+cd bin && java org.antlr.v4.runtime.misc.TestRig it.monicelli.Monicelli programma ../examples/fibonacci.beauty.mc -gui && cd ..
